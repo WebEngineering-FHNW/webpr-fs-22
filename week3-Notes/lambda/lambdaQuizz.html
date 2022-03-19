@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Tests</title>
+</head>
+<body>
+    <script>
+
+    document.writeln("Q7:");
+    const T = x => y => x;
+    const F = x => y => y;
+    document.writeln("1:");
+    // //standard definition of pair
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+    //
+    // const pairPlus = a => b => pair(fst(a) + fst(b))(snd(a) + snd(b));
+    //
+    // const oneTwo = pair(1)(2);
+    // const sum = pairPlus(oneTwo)(oneTwo);
+    //
+    // document.writeln(pairEq(sum)(pair(2)(4))); //true
+    //---------------------------------------------
+    document.writeln("2:");
+    //standard definition of pair
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const oneTwo = pair(1,2);
+    // document.writeln(fst(oneTwo) === 1); //false
+
+    //---------------------------------------------
+    document.writeln("3:");
+    //standard definition of pair
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const oneTwo = pair(1)(2);
+    // fst(oneTwo) = 0;
+    // document.writeln(fst(oneTwo) === 0); //error
+
+    //---------------------------------------------
+    document.writeln("4:");
+    //standard definition of pair
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+    //
+    // const pairMap = f => p => pair(f(fst(p))) (f(snd(p)));
+    //
+    // const oneTwo = pair(1)(2);
+    // const square = x => x * x;
+    // const result = pairMap(square)(oneTwo);
+    //
+    // document.writeln(pairEq(result)(pair(1)(4))); //true
+
+    //---------------------------------------------
+    document.writeln("5:");
+    //standard definition of pair
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const oneTwo = pair(1)(2);
+    // document.writeln(fst(oneTwo) === 1); //true
+
+    //---------------------------------------------
+    document.writeln("6:");
+    //standard definition of pair
+    // const pair = a => b => f => f(a)(b);
+    // const fst = p => p(T);
+    // const snd = p => p(F);
+    //
+    // const oneTwo = pair(1)(2);
+    // fst(oneTwo) = 0;
+    // document.writeln(fst(oneTwo) === 0); //throws reference Error
+
+    //######### Q8 #######
+    document.writeln("Q8:");
+    document.writeln("1:");//false
+    // const s1 = x => y => z => x; // select 1st arg
+    // const s2 = x => y => z => y; // select 2nd arg
+    // const s3 = x => y => z => z; // select 3rd arg
+    //
+    // const triple = x => y => z => f => f(x)(y)(z);
+    // const a      = t => t(s1);
+    // const b      = t => t(s2);
+    // const c      = t => t(s3);
+    //
+    // const  oneTwoThree = triple(1);
+    //
+    // document.writeln( a(oneTwoThree) === 1 );
+    //---------------------------------------------
+    document.writeln("2:"); //false because bran does not complete the function!
+    // const s1 = x => y => z => x; // select 1st arg
+    // const s2 = x => y => z => y; // select 2nd arg
+    // const s3 = x => y => z => z; // select 3rd arg
+    //
+    // const triple = x => y => z => f => f(x)(y)(z);
+    // const a      = t => t(s1);
+    // const b      = t => t(s2);
+    // const c      = t => t(s3);
+    //
+    // const person = triple;
+    // const firstname = a;
+    // const lastname = b;
+    // const age = c;
+    //
+    // const bran = person("Brendan");
+    // const raven = bran("Stark")(16);
+    // const eich = bran ("Eich")(50);
+    //
+    // //const bran = person("Brendan")("stark")(23); //that would work!
+    //
+    // document.writeln( firstname(bran) === "Brendan" );
+    // document.writeln( bran );
+
+    //---------------------------------------------
+    document.writeln("3:"); //true
+    // const s1 = x => y => z => x; // select 1st arg
+    // const s2 = x => y => z => y; // select 2nd arg
+    // const s3 = x => y => z => z; // select 3rd arg
+    //
+    // const triple = x => y => z => f => f(x)(y)(z);
+    // const a      = t => t(s1);
+    // const b      = t => t(s2);
+    // const c      = t => t(s3);
+    //
+    // const person = triple;
+    // const firstname = a;
+    // const lastname = b;
+    // const age = c;
+    //
+    // const bran = person("Brendan");
+    // const raven = bran("Stark")(16);
+    // const eich = bran ("Eich")(50);
+    //
+    // //const raven = person("Brendan")("stark")(16); //that would too!
+    //
+    // document.writeln( age(raven) === 16 );
+    // document.writeln( firstname(raven) );
+    // document.writeln( lastname(raven) );
+    // document.writeln( age(raven) );
+    // document.writeln( raven );
+
+    //---------------------------------------------
+    document.writeln("4:"); //true
+    // const s1 = x => y => z => x; // select 1st arg
+    // const s2 = x => y => z => y; // select 2nd arg
+    // const s3 = x => y => z => z; // select 3rd arg
+    //
+    // const triple = x => y => z => f => f(x)(y)(z);
+    // const a      = t => t(s1);
+    // const b      = t => t(s2);
+    // const c      = t => t(s3);
+    //
+    // const oneTwoThree = triple(1)(2)(3);
+    //
+    // document.writeln( a(oneTwoThree) === 1 );
+
+    //---------------------------------------------
+    document.writeln("5:"); // true
+    // const s1 = x => y => z => x; // select 1st arg
+    // const s2 = x => y => z => y; // select 2nd arg
+    // const s3 = x => y => z => z; // select 3rd arg
+    //
+    // const triple = x => y => z => f => f(x)(y)(z);
+    // const a      = t => t(s1);
+    // const b      = t => t(s2);
+    // const c      = t => t(s3);
+    //
+    // const person = triple;
+    // const firstname = a;
+    // const lastname = b;
+    // const age = c;
+    //
+    // const bran = person("Brendan")("Eich")(50);
+    //
+    // document.writeln( firstname(bran) === "Brendan" );
+    // document.writeln( bran );
+
+    //---------------------------------------------
+    //######### Q9 #######
+    document.writeln("Q9:");
+    document.writeln("1:"); // NO error message! in result ist just the correct working funcion safed!
+    //standard either
+    // const Left = x => f => g => f (x);
+    // const Right = x => f => g => g (x);
+    // const either = e => f => g => e (f) (g);
+    //
+    // const safeDiv = num => divisor => divisor === 0
+    //                 ? Left ("cannot divide by 0") : Right (num / divisor);
+    //
+    // const result = safeDiv(1)(0);
+    //
+    // either (result)
+    //         (msg => document.writeln(msg));
+    // document.writeln(result);// prints f => g => f (x)
+
+    //---------------------------------------------
+    document.writeln("2:"); // true is printed
+    //standard either
+    // const Left = x => f => g => f (x);
+    // const Right = x => f => g => g (x);
+    // const either = e => f => g => e (f) (g);
+    //
+    // const safeDiv = num => divisor => divisor === 0
+    //     ? Left ("cannot divide by 0") : Right (num / divisor);
+    //
+    // const result = safeDiv(1)(1);
+    //
+    // either (result)
+    // (msg => document.writeln(msg))(val => document.writeln(val === 1));
+
+    //---------------------------------------------
+    document.writeln("3:"); // it is NOT showing "cannot divide by 0"
+    // const Left = x => f => g => f (x);
+    // const Right = x => f => g => g (x);
+    // const either = e => f => g => e (f) (g);
+    //
+    // const safeDiv = num => divisor => divisor === 0
+    //                 ? Left ("cannot divide by 0") : Right (num / divisor);
+    //
+    // const result = safeDiv(1)(0);
+    //
+    // either (result)
+    //         (msg => document.writeln(msg));
+    //---------------------------------------------
+    document.writeln("4:"); // no outout is produced, yes
+    // const Left = x => f => g => f (x);
+    // const Right = x => f => g => g (x);
+    // const either = e => f => g => e (f) (g);
+    //
+    // const safeDiv = num => divisor => divisor === 0
+    //     ? Left ("cannot divide by 0") : Right (num / divisor);
+    //
+    // const result = safeDiv(1)(0);
+    //
+    // either (result)
+    // (msg => document.writeln(msg));
+    //---------------------------------------------
+    document.writeln("5:"); //prints "cannot divide by 0"
+    //standard either
+    // const Left = x => f => g => f (x);
+    // const Right = x => f => g => g (x);
+    // const either = e => f => g => e (f) (g);
+    //
+    // const safeDiv = num => divisor => divisor === 0
+    //     ? Left ("cannot divide by 0") : Right (num / divisor);
+    //
+    // const result = safeDiv(1)(0);
+    //
+    // either (result)
+    // (msg => document.writeln(msg))(val => document.writeln(val === 1));
+    //---------------------------------------------
+    //######### Q9c #######
+    document.writeln("Q9c:");
+    // Given the function definitions from the lecture for
+    // 'either', 'Left', 'Right', 'id' and safeDiv as shown below,
+    // provide a function 'eShow' that takes the result from safeDiv and
+    // returns either the error string (in case of division by 0)
+    // or otherwise the success message "Result is: " with the result appended.
+    // Provided is:
+    //  const Left = x => f => g => f(x);
+    //  const Right = x => f => g => g(x);
+    //  const id = x =>x;
+
+    //  const Left = x => f => g => f(x);
+    //  const Right = x => f => g => g(x);
+    //  const id = x =>x;
+    //
+    // const eShow = id =>
+    //     id
+    //     (msg => msg)
+    //     (val => "Result is: "+val);
+    //
+    // //Test
+    // const x_ = Math.random();
+    // const safeDiv = num => divisor => divisor === 0
+    //         ? Left ("Cannot divide by 0") : Right (num / divisor);
+    //
+    //
+    // document.writeln( eShow( safeDiv(1)(0) ) === "Cannot divide by 0" && eShow( safeDiv(x_)(1) ) === "Result is: "+x_);
+    // document.writeln(eShow( safeDiv(1)(0) ));
+    // document.writeln(eShow( safeDiv(1)(1) ));
+    // document.writeln(x_);
+    //
+    // //todo: solution is: const eShow = id => id (msg => msg) (val => "Result is: "+val);
+    </script>
+</body>
+</html>

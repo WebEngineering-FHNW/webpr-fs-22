@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Tests</title>
+</head>
+<body>
+    <script>
+        // document.writeln("Q4:");
+        // document.writeln("1:");
+        //
+        // function two(){ // false
+        //     let x = 2;
+        //     return x;
+        // }
+        // try { // is x in scope?
+        //     x;
+        //     document.writeln(true)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        // //---------------------------------------------
+        // document.writeln("3:");
+        //
+        // function two3(){ // false
+        //     y = 2;
+        //     return x;
+        // }
+        // try { // is x in scope?
+        //     y;
+        //     document.writeln(true)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        // //---------------------------------------------
+        // document.writeln("2:");
+        // let x = 0;
+        // function two2() { // true
+        //     let x = 2;
+        //     return x;
+        // }
+        // two2();
+        //
+        // try { // is x in scope?
+        //     x;
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        // //---------------------------------------------
+        // document.writeln("4:");
+        //
+        // let z = 0;
+        // function two4() { // false
+        //     z = 2;
+        //     return z;
+        // }
+        // two4();
+        //
+        // try { // is x in scope?
+        //     z;
+        //     document.writeln(z === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        // //---------------------------------------------
+        // document.writeln("5:");
+        //
+        // function two5() { // true
+        //     k = 2;
+        //     return k;
+        // }
+        // two5();
+        //
+        // try { // is x in scope?
+        //     k;
+        //     document.writeln(true)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+
+        //########  Q5    ########
+        document.writeln("----Q5----:");
+        // document.writeln("1:"); //false
+        // x = 0;
+        // ( () => {
+        //     x = 2;
+        //     return x;
+        // }) () ;
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        //---------------------------------------------
+        document.writeln("2:"); //true
+        // let x = 0;
+        // function two() {
+        //     let x = 2;
+        //     return x;
+        // }
+        // two();
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        //---------------------------------------------
+         document.writeln("3:"); //true
+        // let x = 0;
+        // ( () => {
+        //     let x = 2;
+        //     return x;
+        // }) () ;
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        //---------------------------------------------
+        document.writeln("4:"); //true
+        // let x = 0;
+        // (function() {
+        //     let x = 2;
+        //     return x;
+        // }) ();
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        //---------------------------------------------
+         document.writeln("5:"); // error
+        // let x = 0;
+        // function two() {
+        //     let x = 2;
+        //     return x;
+        // } ();
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        //}
+        //---------------------------------------------
+         document.writeln("6:"); // true
+        // let x = 0;
+        // (function two() {
+        //     let x = 2;
+        //     return x;
+        // }) ();
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0)
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+        //---------------------------------------------
+
+        // //########  Q6    ########
+        // document.writeln("----Q6----:");
+        // document.writeln("1:"); // yes
+        // //Are id1 and id2 alpha-equivalent?
+        // const id1 = x => x;
+        // const id2 = y => y;
+        //
+        // document.writeln("2:"); //No
+        //Are F1 and F2 alpha-equivalent?
+        // const F1 = x => (x => x);
+        // const F2 = y => (x => y);
+
+        //
+        // document.writeln("4:"); // yes
+        // // Given 'id' snd 'konst', is F3 a proper eta reduction of F2?
+        // const id = x => x;
+        // const konst = x => y => x;
+        //
+        // const F11 = x => y => konst(id) (x) (y);
+        // const F22 = x =>  konst(id) (x);
+        // const F33 =  konst(id) ;
+        //
+        // document.writeln("5:"); // yes
+        // // Given 'id' snd 'konst', is F2 a proper eta reduction of F1?
+        // const id = x => x;
+        // const konst = x => y => x;
+        //
+        // const F111 = x => y => konst(id) (x) (y);
+        // const F222 = x =>  konst(id) (x);
+        // const F333 =  konst(id) ;
+
+        // document.writeln("3:"); //  no?
+        // // Given 'id', is a2 a proper beta reduction of a1?
+        // const id = x => x;
+        //
+        // const a1 = y => id(y);
+        // const a2 = y => y;
+        //
+        // document.writeln("6:"); //  no?
+        // // Given 'id', is a1 a proper beta expansion of a2?
+        // const id = x => x;
+        //
+        // const a11 = y => id(y);
+        // const a22 = y => y;
+
+        //########  Q6a    ########
+        document.writeln("----Q6a----:");
+        // Given
+        // const id = y => y
+        // const fs = x => y => x
+        // We want to write 'snd' such that it returns the second argument like
+        // const snd = x => y => y
+        // but we can only use fst and id ( not x and y)  for the implementation.
+        // You might need eta operations to find the solution.
+        // The start of the function definition is added for you. Provide the function body only.
+        // const snd = <your code will be added here>
+        const id = y => y;
+        const fst = x => y => x;
+        //const fst = x => y => x;
+
+
+        // const snd = x => y => y
+        //const snd = x => y => id(y);
+        //const snd = x => id;
+        const snd = fst(id);
+
+        //Test
+        const x_ = Math.random();
+        const y_ = Math.random();
+        //snd(x_)(y_) === y_;
+        document.writeln(snd(x_)(y_) === y_);
+
+        //TODO: solution to inser ist only: fst(id);
+
+    </script>
+</body>
+</html>
+

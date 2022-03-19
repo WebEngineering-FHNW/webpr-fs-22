@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Tests</title>
+</head>
+<body>
+    <script>
+
+        let x = 0;
+        //IIFE
+        (() => {
+            let x = 1;
+            document.writeln(x); // prints 1 becaus of the line above
+         })(); // immediate function invoke by () after ({})!
+        // FYI: only with {} without ; in the end, its a block and not a statement
+        // but not all inerpretates can read this like a block yet
+        document.writeln(x); //stays 0 becaue of the let of line 10
+
+        const id = x => x;
+        //const Konst = x => y => x; //curried style and returns always x
+        const Konst = id => x => id; //alpha
+
+        //const Kite = x => y => y; //literal deceration of it but there is a way to write
+        // this based on those above thanks to the lambda calculus
+        // const Kite = x => y => id(y); // apply eta reduction
+        // const Kite = x => id; // by changing Konst with alpha translation to line:
+        const Kite = Konst(id); // by beta reduction
+
+
+        document.writeln( id(id) === id); //true
+        document.writeln( Konst(id)(undefined) === id);// ture
+         document.writeln( Kite(undefined)(id) === id);
+
+    </script>
+</body>
+</html>
+

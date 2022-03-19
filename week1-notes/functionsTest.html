@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+
+        document.writeln("true"); //wrtiting directly into window, test report says true - works but can we have a test runner? - yes, next lines
+        document.writeln(true); // presentation of the boolean value
+        document.writeln(1 === 0); // a fail test
+        //To remember: we need nothing else than an html test file(or script?)
+        //test report and test execution is kind of the same (and these without any dependencies)
+        document.writeln(1 === 1); // to eleminate the waring - keep it true. Fail first is better to start
+
+        // first topic function: therefore you need the kewyword function name(parameter) {statement; }
+
+        function fun1()    { return 1; }
+        //testcase for the function:
+        document.writeln( fun1()   === 1 ); // returns true, if it would not bee true, it returns flase, btw fun1(argument)
+        document.writeln( fun1(42) === 1 ); // calling function with a argument - put function is build without parameter --> compile error in java but in js its true!
+        // why does this work in js? this comes with a price. there can't be a second function "overloading" as in java
+        // one reason therefore is: in java there is the error while compiler runs. but in js there is no compiler error because there is no compiler!
+        // in js: there is still a compiler involved but its in runtime and compiles only small pieces in one time. there is no compiler for security test in js like in java
+        // superfluous arguments are ignored in js! --> we can not have functional overloading
+
+        // two function, once with parament and once without
+        function fun2()    { return 1; }
+        function fun2(arg) { return arg; }
+
+        document.writeln( fun2() !== 1  ); // returns true! ( bsp. document.writeln( fun2()  ); returns undefined
+        document.writeln( fun2() === undefined ); // returns true
+        document.writeln( fun2(42) === 42 ); // returns true
+        //--> idea line29 does not make sense at all because its like its not available, because the second one will always be called
+        // fun2 is a reference to a function and its referred to the last decoration of this function!
+        // only uf you dereference it  ????
+        // with nothing in parentheses is undefined
+        // Pay attention to this kind of error of overwriting !
+
+
+        // what happents, if the key word return is missing?
+        function noReturn()    { 1; } // many language it automatically insert return. but NOT in JS! it would be undefined
+        const noReturn2 = () => { 1; }; // const as key word combinde mit fat-arrow is in replacement of the function key word
+        // it's for the mapping  is a function form () to { statement; };
+        //the whole function () => {;}; is given a nime by const ... but still, there is a probleme, a block is not enexprection! return key word is still needed!
+        const noReturn3 = () => 1; // without the {} we do not need the return key word
+        //noReturn3 = (arg) => arg; //does not work! or does it? (ist meine frage...)
+
+        // to know! always with {} you need return key word! with const you can loos those {} and therfore also the return key word
+
+        document.writeln( noReturn() !== 1 );
+        document.writeln( noReturn2() !== 1 );
+        document.writeln( noReturn3() === 1 );
+
+        const myfun = fun1; // fun1 is a referenze to the function - function can be values and therefore it can be assignet to a constant
+        const funs = [null, undefined, fun1, fun2]; // soring in a array
+        // //
+        document.writeln( myfun() === 1 ); // myfun is a function but you bed the ()
+        document.writeln( funs[2]() === 1 ); // here those function will be dereferenced, funs[2] referce to fun1
+
+        // higher order function:
+        function doit(whatToDo) {
+             return function bla(arg) { return whatToDo(arg); } // here you see, the argument whatToDo must by of type function
+         }
+
+       document.writeln( doit(fun1)(10) === 1 ); // here we calling it but be VORSICHTIG! fun1 is with no () directly in it!!! 10 here ist the bla(10)
+       document.writeln( doit(fun2)(10) === 10 ); // true
+        //this is also possible  to write whit fat arrow synthax:
+        const doit2 = callme => arg => callme(arg) ; //curried style
+        // doit2= function with imput callme which is used as a function with the return value of typo function - same as doit but shorter :)
+
+        document.writeln( doit2(fun1)(10) === 1 ); // can be any function for fun1 - does not have to be a fat arrow function
+        //doit2(fun1) returns a function on which (10) is called
+        // this style is called 'curried function'
+
+        // breake it up could look like:
+        const doFun2 = doit2(fun1); // soring the funciton
+
+        document.writeln( doFun2(10) === 1 ); // and calling it
+        document.writeln( doFun2()   === 1 );
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

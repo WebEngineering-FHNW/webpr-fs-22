@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+        //-------Q1----------
+        document.writeln("Q1:");
+        document.writeln("1:"); //undef
+
+        function foo(){
+            true;
+        }
+        document.writeln(foo());
+
+        document.writeln("2:"); //Error
+        //const foo2 = true;
+        //document.writeln(foo2()); // no () after foo2!!
+
+        document.writeln("3:"); //true
+        function foo3(){
+            return true;
+        }
+        document.writeln(foo3());
+
+        document.writeln("4:"); //true
+        const foo4 = () => true;
+        document.writeln(foo4(1));
+
+        document.writeln("5:"); // true
+        const foo5 = (x) => true;
+        document.writeln(foo5());
+
+        document.writeln("6:"); // whole function
+        function foo6(){
+            return true;
+        }
+        document.writeln(foo6);
+
+        document.writeln("7:");// true
+        const foo7 = () => true;
+        document.writeln(foo7());
+
+        //-------Q2----------
+        document.writeln("-----Q2:");
+        document.writeln("1:");
+        function one(x) {
+            return x;
+        }
+        function two(x,y) {
+            return x+y;
+        }
+        function three(x, y, z) {
+            return x + y + z;
+        }
+        const functions = [null, one, two, three];
+        document.writeln(functions[2](1,1,1)); //2 --> correct
+
+        document.writeln("2:");
+        function one(x) {
+            return x;
+        }
+        function two(x,y) {
+            return x+y;
+        }
+        function three(x, y, z) {
+            return x + y + z;
+        }
+        const functions2 = [null, one, two, three];
+        document.writeln(functions2[3](1,1)); //NaN --> notcorrect
+
+        document.writeln("3:");
+        function one(x) {
+            return x;
+        }
+        function two(x,y) {
+            return x+y;
+        }
+        function three(x, y, z) {
+            return x + y + z;
+        }
+        const functions3 = [null, one, two, three];
+        document.writeln(functions3[1](1));// 1 --> correct
+
+        //-------Q3a----------
+        document.writeln("-----Q3a:");
+        //Write a function named 'id' that returns its argumenbt, such that for all x, id(x) === x
+        function id(x) {
+            return x;
+        }
+        //or
+        const idd = (x) => x;
+
+        //test
+        const x_ = Math.random();
+        document.writeln( id(x_) === x_);
+        document.writeln( idd(x_) === x_);
+
+        //-------Q3b----------
+        document.writeln("-----Q3b:");
+        // Write a function named 'plus' that returns the sum of its arguments,
+        // where the arguments are being passed in curried style,
+        // such that for all numbers y and y, plus(x)(y) === x+y.
+        // Use tge => notation exclusivley, i.e. no "function" keyword.
+        //curried style: const doit2 = callme => arg => callme(arg) ;
+        const plus = (x) => (y) => x+y;
+
+        //test
+        const z_ = Math.random();
+        const y_ = Math.random();
+        const plus3 = plus(3);
+        document.writeln( plus(z_)(y_)  === z_ + y_ && plus3(y_) === y_ + 3);
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
