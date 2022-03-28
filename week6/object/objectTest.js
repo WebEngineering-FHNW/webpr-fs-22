@@ -114,6 +114,18 @@
 ( () => {
     let ok = [];
 
+    /**
+     * @typedef PersonType
+     * @property { () => String } getName - the combination of first and last name concatenated with a blank
+     */
+
+    /**
+     * Constructor for a object of type {@link PersonType}
+     * @param { String } first
+     * @param { String } last
+     * @return { PersonType }
+     * @constructor
+     */
     function Person(first, last) {
         let firstname = first;
         let lastname  = last;
