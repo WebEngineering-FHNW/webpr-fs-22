@@ -2,6 +2,33 @@
 
 // find a solution for suite, test, assert
 
+const Assert = () => {
+    const ok = [];
+    return {
+        is    : (a, b, message) => {
+            if (a === b) {
+                ok.push(true);
+            } else {
+                if (message) {
+                    console.log(message);
+                }
+                console.error("test failed! expected:" + a + " but got " + b);
+                ok.push(false);
+            }
+        },
+        getOk : () => ok
+    }
+}
+
+const test = (origin, callback) => {
+    // make the ok array
+    const assert = Assert();
+    // pushed booleans into the array
+    callback(assert);
+    // reporting the result
+    report(origin, assert.getOk());
+}
+
 
 
 // test result report
