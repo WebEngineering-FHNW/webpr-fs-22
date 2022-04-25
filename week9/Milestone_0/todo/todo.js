@@ -1,7 +1,7 @@
 
 let todoContainer = null;
 let numberOfTasks = null;
-let openTasks = null;
+let openTasks     = null;
 
 function startTodo(newTodoContainer, newNumberOfTasks, newOpenTasks) {
     todoContainer = newTodoContainer;
@@ -19,13 +19,14 @@ function addTodo() {
     checkboxElement.setAttribute("TYPE", "CHECKBOX");
 
     checkboxElement.onclick = _ => {
-        openTasks.innerText = Number(openTasks.innerText) + (checkboxElement.checked ? -1 : 1);
+        // openTasks.innerText   = Number(openTasks.innerText) + (checkboxElement.checked ? -1 : 1);
+        openTasks.textContent = Number(openTasks.textContent) + (checkboxElement.checked ? -1 : 1);
     };
 
     todoContainer.appendChild(inputElement);
     todoContainer.appendChild(checkboxElement);
 
-    numberOfTasks.innerText = Number(numberOfTasks.innerText) + 1;
-    openTasks.innerText     = Number(openTasks.innerText) + 1;
+    numberOfTasks.textContent = Number(numberOfTasks.textContent) + 1;
+    openTasks.textContent     = Number(openTasks.textContent) + 1;
 
 }
