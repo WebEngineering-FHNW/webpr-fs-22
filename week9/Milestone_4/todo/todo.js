@@ -52,7 +52,7 @@ const TodoItemsView = (todoController, rootElement) => {
         deleteButton.onclick    = _ => todoController.removeTodo(todo);
 
         todoController.onTodoRemove( removedTodo => {
-            if (removedTodo !== todo) return;
+            if (removedTodo !== todo) return; // guard clause
             rootElement.removeChild(inputElement);
             rootElement.removeChild(deleteButton);
             rootElement.removeChild(checkboxElement);
