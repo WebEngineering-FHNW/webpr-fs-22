@@ -1,7 +1,7 @@
 
 
 const timesFunction = function(callback) {
-  if( isNaN(parseInt(Number(this.valueOf()))) ) {
+  if( isNaN(Number(this.valueOf())) ) {
     throw new TypeError("Object is not a valid number");
   }
   for (let i = 0; i < Number(this.valueOf()); i++) {

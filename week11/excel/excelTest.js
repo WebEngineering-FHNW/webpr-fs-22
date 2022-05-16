@@ -3,14 +3,15 @@
 
 test("excel", assert => {
 
-    let tbody = document.createElement("TBODY");
+    const tbody = document.createElement("TBODY");
     tbody.setAttribute("ID","dataContainer");
-    let body = document.getElementsByTagName("BODY")[0];
+    const body = document.getElementsByTagName("BODY")[0];
     body.appendChild(tbody);
 
     startExcel();
     refresh();
-    assert.is(n(C3), 6);
+    const resultCell = document.getElementById("C3");
+    assert.is(n(resultCell), 6);
 
     body.removeChild(tbody);
 

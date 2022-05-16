@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title> All Tests </title>
     <script src="util/test.js"></script>
@@ -26,7 +26,27 @@
 
     });
 
-    document.writeln("\nCheck possible 'compile' errors in the console .")
+    document.writeln("\nCheck possible 'compile' errors in the console .");
+
+    /**
+     * Logs a {@link String} message to the console.
+     * @param { String | Number } message - aslk aölskfj öalksdjf
+     * @return void
+     */
+    const logString = message => console.log(message);
+
+    /**
+     * @template T
+     * @param { T } x
+     * @return T
+     */
+    const myId = x => x;
+
+
+    logString( myId("Hi"));
+    logString( myId(1) );
+    // logString(); // will not typecheck
+
 
 </script>
 

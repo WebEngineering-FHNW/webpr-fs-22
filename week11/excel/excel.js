@@ -17,11 +17,11 @@ function startExcel() {
 
 function fillTable(container) {
     rows.forEach( row => {
-        let tr = document.createElement("TR");
+        const tr = document.createElement("TR");
         cols.forEach( col => {
-            let td     = document.createElement("TD");
-            let input  = document.createElement("INPUT");
-            let cellid = "" + col + row;
+            const td     = document.createElement("TD");
+            const input  = document.createElement("INPUT");
+            const cellid = "" + col + row;
             input.setAttribute("VALUE", Formulae[cellid]);
             input.setAttribute("ID", cellid);
             DFVs[cellid] = df(input);
@@ -43,8 +43,8 @@ function fillTable(container) {
 function refresh() {
     cols.forEach( col => {
         rows.forEach( row => {
-            let cellid   = "" + col + row;
-            let input    = document.getElementById(cellid);
+            const cellid = "" + col + row;
+            const input  = document.getElementById(cellid);
             DFVs[cellid] = df(input);
             input.value  = n(input);
         });
