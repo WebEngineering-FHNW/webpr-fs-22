@@ -5,7 +5,7 @@ const Scheduler = () => {
     const tasks = [];
     function process() {
         if (inProcess) { return; }
-        if (tasks.length === 0) { return; } // guard clause
+        if (0 === tasks.length) { return; } // guard clause
         inProcess = true;
         const task = tasks.pop();
 

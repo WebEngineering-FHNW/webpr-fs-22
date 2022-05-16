@@ -22,7 +22,7 @@ const ObservableList = list => {
     const addListeners = [];
     const delListeners = [];
     const removeAt     = array => index => array.splice(index, 1);
-    const removeItem   = array => item  => { const i = array.indexOf(item); if (i>=0) removeAt(array)(i); };
+    const removeItem   = array => item  => { const i = array.indexOf(item); if (0 <= i) removeAt(array)(i); };
     const listRemoveItem     = removeItem(list);
     const delListenersRemove = removeAt(delListeners);
     return {
@@ -49,7 +49,7 @@ const Scheduler = () => {
     const tasks = [];
     function process() {
         if (inProcess) { return; }
-        if (tasks.length === 0) { return; } // guard clause
+        if (0 === tasks.length) { return; } // guard clause
         inProcess = true;
         const task = tasks.pop();
 
